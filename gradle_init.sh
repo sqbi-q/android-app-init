@@ -9,4 +9,4 @@ cp gradle_templates/build.gradle.kts ./build.gradle.kts
 
 cp gradle_templates/settings.gradle.kts ./settings.gradle.kts
 # Change rootProject.name to projectname 
-sed -i 's/rootProject.name \=.*/rootProject.name \= "$projectname"/' ./settings.gradle.kts
+sed -i "s/rootProject.name \=.*/rootProject.name \= \"$projectname\"/" ./settings.gradle.kts
