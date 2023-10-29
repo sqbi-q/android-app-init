@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidAppKotlin"
+rootProject.name = "placeholder"
 include(":app")
