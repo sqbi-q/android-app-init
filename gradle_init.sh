@@ -77,6 +77,10 @@ sed -i "s/versionName \= .*/versionName \= \"$versionName\"/" ./app/app-properti
 sed -i "s/kotlinCompilerExtensionVersion \= .*/kotlinCompilerExtensionVersion \= \"$kotlinComposeVersion\"/" ./app/app-properties.kts
 sed -i "s/jvmToolchain(.*)/jvmToolchain($jdkVersion)/" ./app/app-properties.kts
 
+
 # Copy Android manifest and set application label
 cp gradle_templates/app_templates/AndroidManifest.xml ./app/src/main/
 sed -i "s/android:label\=.*/android:label\=\"$label\"/" ./app/src/main/AndroidManifest.xml
+
+# Add styles.xml
+cp gradle_templates/app_templates/styles.xml ./app/src/main/res/values/
