@@ -1,6 +1,16 @@
 #!/bin/bash
 projectname="android_app_kotlin"
 
+# See gradle_templates/app_templates/app-properties.kts for meaning of properties
+applicationId="com.example.android_app_kotlin"
+jdkVersion=17
+compileSdkVersion=34
+targetSdk=34
+minSdk=21
+version=1
+versionName="1.0"
+kotlinComposeVersion="1.5.3"
+
 ## Result project structure ##
 # root/                      # Project
 #   |---gradle.properties
@@ -26,6 +36,8 @@ projectname="android_app_kotlin"
 # and https://developer.android.com/build
 ##
 
+## Script uses sed to change values of properties in ./settings.gradle.kts and app/app-properties.kts.
+## Sed commands need to be updated after changes upon app-properties.kts
 
 # Gradle initalization (using .kts configs)
 gradle init --type basic --dsl kotlin --project-name $projectname --no-incubating
@@ -49,3 +61,13 @@ mkdir -p app/src/main/res/drawable app/src/main/res/values
 # Copy app templates to app/ directory
 cp gradle_templates/app_templates/build.gradle.kts app/
 cp gradle_templates/app_templates/app-properties.kts app/
+# Change properties of app-properties.kts
+sed -i "s/namespace \= .*/namespace \= \"$applicationId\"/" ./app/app-properties.kts
+sed -i "s/compileSdk \= .*/compileSdk \= $compileSdkVersion/" ./app/app-properties.kts
+sed -i "s/applicationId \= .*/applicationId \= \"$applicationId\"/" ./app/app-properties.kts
+sed -i "s/targetSdk \= .*/targetSdk \= $targetSdk/" ./app/app-properties.kts
+sed -i "s/minSdk \= .*/minSdk \= $minSdk/" ./app/app-properties.kts
+sed -i "s/versionCode \= .*/versionCode \= $version/" ./app/app-properties.kts
+sed -i "s/versionName \= .*/versionName \= \"$versionName\"/" ./app/app-properties.kts
+sed -i "s/kotlinCompilerExtensionVersion \= .*/kotlinCompilerExtensionVersion \= \"$kotlinComposeVersion\"/" ./app/app-properties.kts
+sed -i "s/jvmToolchain(.*)/jvmToolchain($jdkVersion)/" ./app/app-properties.kts
