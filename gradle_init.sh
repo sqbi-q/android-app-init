@@ -84,3 +84,7 @@ sed -i "s/android:label\=.*/android:label\=\"$label\"/" ./app/src/main/AndroidMa
 
 # Add styles.xml
 cp gradle_templates/app_templates/styles.xml ./app/src/main/res/values/
+
+# Add example code and change package uri
+cp gradle_templates/app_templates/MainActivity.kt ./app/src/main/kotlin/
+sed -i "s/package .*/package $applicationId/" ./app/src/main/kotlin/MainActivity.kt
