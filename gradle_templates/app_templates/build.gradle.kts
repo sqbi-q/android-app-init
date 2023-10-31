@@ -2,7 +2,7 @@ apply(from="./app-properties.kts")
 
 plugins {
     id("com.android.application")
-    id("com.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.android")
 }
 
 dependencies {
