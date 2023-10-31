@@ -43,5 +43,5 @@ mkdir -p app/build/ app/libs/
 mkdir -p app/src/main/kotlin/
 mkdir -p app/src/main/res/drawable app/src/main/res/values
 # Copy app templates to app/ directory
-cp gradle_templates/app_templates/app/build.gradle.kts app/
-cp gradle_templates/app_templates/app/app-properties.kts app/
+cp gradle_templates/app_templates/build.gradle.kts app/
+cp gradle_templates/app_templates/app-properties.kts app/
