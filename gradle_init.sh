@@ -1,5 +1,6 @@
 #!/bin/bash
 projectname="android_app_kotlin"
+label="Android App in Kotlin"
 
 # See gradle_templates/app_templates/app-properties.kts for meaning of properties
 applicationId="com.example.android_app_kotlin"
@@ -75,3 +76,7 @@ sed -i "s/versionCode \= .*/versionCode \= $version/" ./app/app-properties.kts
 sed -i "s/versionName \= .*/versionName \= \"$versionName\"/" ./app/app-properties.kts
 sed -i "s/kotlinCompilerExtensionVersion \= .*/kotlinCompilerExtensionVersion \= \"$kotlinComposeVersion\"/" ./app/app-properties.kts
 sed -i "s/jvmToolchain(.*)/jvmToolchain($jdkVersion)/" ./app/app-properties.kts
+
+# Copy Android manifest and set application label
+cp gradle_templates/app_templates/AndroidManifest.xml ./app/src/main/
+sed -i "s/android:label\=.*/android:label\=\"$label\"/" ./app/src/main/AndroidManifest.xml
