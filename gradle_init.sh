@@ -36,6 +36,10 @@ kotlinComposeVersion="1.5.3"
 # and https://developer.android.com/build
 ##
 
+## Script splits app module configuration file into two seperate files:
+## app-properties.kts for fast access to important properties and
+## build.gradle.kts for dependency implementation and more static properties
+##
 ## Script uses sed to change values of properties in ./settings.gradle.kts and app/app-properties.kts.
 ## Sed commands need to be updated after changes upon app-properties.kts
 
