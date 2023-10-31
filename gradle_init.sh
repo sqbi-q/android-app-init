@@ -39,9 +39,9 @@ sed -i "s/rootProject.name \=.*/rootProject.name \= \"$projectname\"/" ./setting
 
 
 # App (module) directory initalization
-mkdir app
-mkdir app/build/
-mkdir app/libs/
+mkdir -p app/build/ app/libs/
 mkdir -p app/src/main/kotlin/
-mkdir -p app/src/main/res/drawable
-mkdir -p app/src/main/res/values
+mkdir -p app/src/main/res/drawable app/src/main/res/values
+# Copy app templates to app/ directory
+cp gradle_templates/app_templates/app/build.gradle.kts app/
+cp gradle_templates/app_templates/app/app-properties.kts app/
